@@ -1,0 +1,28 @@
+#include "pch.h"
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	//Entrada
+	double expe, sueldo, sueldoTot;
+	char nacimiento;
+
+
+	//Logica
+	cout << "Ingrese los años de experiencia: " << endl;
+	cin >> expe;
+	cout << "Ingrese el lugar de nacimiento: " << endl;
+	cin >> nacimiento;
+
+	sueldo = (expe == 0) * 900 + (expe >= 1 && expe <= 5)*(900 + expe / 100 * 900)
+		+ (expe > 5)*(1000 + expe / 100 * 900);
+	sueldoTot = (nacimiento == 'L')*sueldo*1.15
+		+ (nacimiento == 'F')*sueldo*1.20;
+
+
+	//Salida
+	cout << "El sueldo del nuevo colaborador: " << sueldoTot << endl;
+
+	system("pause");
+}
